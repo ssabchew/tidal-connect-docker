@@ -16,10 +16,13 @@ Please visit https://www.raspberrypi.org/forums/viewtopic.php?t=297771 for full 
 
 # Why this Docker Port
 
-I have been happily using HifiberryOS but being an extremely slim OS (based on Buildroot) has its pitfalls, that there is no easy way of extending its current features. Thankfully the Hifiberry Team have blessed us by providing Docker and Docker-Compose within OS.
-As I didn't want to add yet another system for Tidal integration (e.g. Bluesound, Volumio), i stumbled upon this https://support.hifiberry.com/hc/en-us/community/posts/360013667717-Tidal-Connect-, and i decided to do something about it. 
+I have been happily using HifiberryOS but being an extremely slim OS (based on Buildroot) has its pitfalls, that there is no easy way of
+extending its current features. Thankfully the Hifiberry Team have blessed us by providing Docker and Docker-Compose within OS.
+As I didn't want to add yet another system for Tidal integration (e.g. Bluesound, Volumio), i stumbled upon this
+https://support.hifiberry.com/hc/en-us/community/posts/360013667717-Tidal-Connect-, and i decided to do something about it.
 
-This port does much more than just providing the docker image with TIDAL Connect and volume control, as for HifiBerry users it will also install additional sources meny as displayed above.
+This port does much more than just providing the docker image with TIDAL Connect and volume control, as for HifiBerry users it will also
+ install additional sources meny as displayed above.
 Volume controls are reflected in the UI.
 
 # Known issues

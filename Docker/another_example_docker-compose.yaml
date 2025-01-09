@@ -1,0 +1,42 @@
+---
+version: "3"
+
+services:
+  tidal-connect:
+    image: ${TIDAL_CONNECT_IMAGE:-edgecrush3r/tidal-connect:latest}
+    container_name: tidal-connect
+    network_mode: host
+    devices:
+     - /dev/snd
+    environment:
+     - CARD_NAME=${CARD_NAME:-}
+     - CARD_INDEX=${CARD_INDEX:-}
+     - CARD_DEVICE=${CARD_DEVICE:-}
+     - CARD_FORMAT=${CARD_FORMAT:-}
+     - CERTIFICATE_PATH=${CERTIFICATE_PATH:-}
+     - CLIENT_ID=${CLIENT_ID:-}
+     - CREATED_ASOUND_CARD_NAME=${CREATED_ASOUND_CARD_NAME:-}
+     - ENABLE_SOFTVOLUME=${ENABLE_SOFTVOLUME:-yes}
+     - ENABLE_GENERATED_TONE=${ENABLE_GENERATED_TONE:-yes}
+     - ASOUND_FILE_PREFIX=${ASOUND_FILE_PREFIX:-}
+     - FRIENDLY_NAME=${FRIENDLY_NAME:-TIDAL connect}
+     - MODEL_NAME=${MODEL_NAME:-Audio Streamer}
+     - MQA_CODEC=${MQA_CODEC:-false}
+     - MQA_PASSTHROUGH=${MQA_PASSTHROUGH:-false}
+     - FORCE_PLAYBACK_DEVICE=${FORCE_PLAYBACK_DEVICE:-}
+     - SLEEP_TIME_SEC=${SLEEP_TIME:-3}
+     - RESTART_ON_FAIL=${RESTART_ON_FAIL:-1}
+     - RESTART_WAIT_SEC=${RESTART_WAIT_SEC:-10}
+     - LOG_LEVEL=${LOG_LEVEL:-3}
+     - DISABLE_CONTROL_APP=${DISABLE_CONTROL_APP:-0}
+     - DISABLE_APP_SECURITY=${DISABLE_APP_SECURITY:-}
+     - DISABLE_WEB_SECURITY=${DISABLE_WEB_SECURITY:-}
+    volumes:
+     - ./assets:/assets:ro
+     - ./userconfig:/userconfig:ro
+     - ./bin/common.sh:/common.sh
+     - ./bin/entrypoint.sh:/entrypoint.sh
+     - /var/run/dbus:/var/run/dbus
+    dns:
+      - ${DNS_SERVER_LIST:-8.8.8.8}
+    restart: unless-stopped

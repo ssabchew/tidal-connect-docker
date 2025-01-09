@@ -40,3 +40,4 @@ COPY Docker/entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
+CMD ["/bin/bash", "-il"]
